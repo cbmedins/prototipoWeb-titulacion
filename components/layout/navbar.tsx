@@ -24,23 +24,32 @@ export default function NavBar({ session }: { session: Session | null }) {
         <div className="mx-5 flex h-16 max-w-screen-xl items-center justify-between w-full">
           <Link href="/" className="flex items-center font-display text-2xl">
             <Image
-              src="/logo.png"
-              alt="Precedent logo"
-              width="30"
-              height="30"
+              src="/cardioBlue.png"
+              alt="cardiovascularDisease logo"
+              width="40"
+              height="40"
               className="mr-2 rounded-sm"
             ></Image>
-            <p>Precedent</p>
+            
           </Link>
+          <Link href="/" className="flex font-display text-2xl">
+          <Image
+              src="/UGLogo.png"
+              alt="Universidad de Guayaquil logo"
+              width="37"
+              height="37"
+              className="mr-2 rounded-sm"
+            ></Image>
+            </Link>
           <div>
             {session ? (
               <UserDropdown session={session} />
             ) : (
               <button
-                className="rounded-full border border-black bg-black p-1.5 px-4 text-sm text-white transition-all hover:bg-white hover:text-black"
+                className="rounded border bg-red-500 p-1.5 px-4 text-sm text-white transition-all hover:bg-white hover:text-black border-b-4 border-pink-700 font-semibold"
                 onClick={() => setShowSignInModal(true)}
               >
-                Sign In
+              Iniciar sesión
               </button>
             )}
           </div>

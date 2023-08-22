@@ -25,14 +25,14 @@ export default function WebVitals() {
           cx="50"
           cy="50"
           r="45"
-          fill="#DCFCE7"
-          stroke="#22C55E"
+          fill="#E9FCFE"
+          stroke="#3B82F6"
         />
       </motion.svg>
       <CountingNumbers
-        value={100}
+        value={94}
         duration={2500}
-        className="absolute inset-0 mx-auto flex items-center justify-center font-display text-5xl text-green-500"
+        className="absolute inset-0 mx-auto flex items-center justify-center font-display text-5xl text-gray-500"
       />
     </div>
   );
