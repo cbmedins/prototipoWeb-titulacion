@@ -75,7 +75,7 @@ const ContactForm: React.FC = () => {
                 name="custom-input-number"
                 value={age === '' ? '0' : age}
                 onChange={(e) => setCounter(e.target.value)}
-                className="w-full p-2 border border-gray-300 rounded"
+                className="w-1/4 p-2 border border-gray-300 rounded text-center"
               />
               <button className="bg-blue-500 text-white px-10 py-2 rounded" onClick={() => setCounter((parseInt(age) + 1).toString())}>
                 <span>+</span>
