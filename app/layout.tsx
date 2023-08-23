@@ -7,17 +7,17 @@ import Footer from "@/components/layout/footer";
 import { Suspense } from "react";
 
 export const metadata = {
-  title: "Precedent - Building blocks for your Next.js project",
+  title: "Sistema Predictivo de Enfermedades Cardiovasculares",
   description:
-    "Precedent is the all-in-one solution for your Next.js project. It includes a design system, authentication, analytics, and more.",
+    "Proyecto de titulación previa a la obtención del título de: INGENIERO EN SISTEMAS COMPUTACIONALES",
   twitter: {
     card: "summary_large_image",
-    title: "Precedent - Building blocks for your Next.js project",
+    title: "Sistema Predictivo de Enfermedades Cardiovasculares",
     description:
-      "Precedent is the all-in-one solution for your Next.js project. It includes a design system, authentication, analytics, and more.",
-    creator: "@steventey",
+      "Proyecto de titulación previa a la obtención del título de: INGENIERO EN SISTEMAS COMPUTACIONALES",
+    creator: "@cbmedins",
   },
-  metadataBase: new URL("https://precedent.dev"),
+  metadataBase: new URL("https://codytech.dev/"),
   themeColor: "#FFF",
 };
 
