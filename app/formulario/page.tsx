@@ -41,7 +41,6 @@ export default async function Home() {
             style={{ animationDelay: "0.3s", animationFillMode: "forwards" }}
           >
             
-           
   
           </div>
         </div>

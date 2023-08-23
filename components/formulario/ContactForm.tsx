@@ -4,7 +4,7 @@ import React, { useState, FormEvent } from 'react';
 import Tooltip from "@/components/shared/tooltip";
 
 const ContactForm: React.FC = () => {
-  const [age, setAge] = useState('');
+
   const [sex, setSex] = useState('');
   const [chestPainType, setChestPainType] = useState('');
   const [restingBP, setRestingBP] = useState('');
@@ -14,6 +14,8 @@ const ContactForm: React.FC = () => {
   const [maxHR, setMaxHR] = useState('');
   const [exerciseAngina, setExerciseAngina] = useState('');
   const [oldpeak, setOldpeak] = useState('');
+
+  const [age, setCounter] = useState('0');
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -30,27 +32,17 @@ const ContactForm: React.FC = () => {
     console.log('Oldpeak:', oldpeak);
   };
 
+  
+
   return (
     <div className="p-4">
     <br />
       <h1 className="bg-gradient-to-br from-black to-stone-500 bg-clip-text font-display text-xl font-bold text-transparent md:text-3xl md:font-normal">Formulario para la predicción</h1>      
-      <br />
-     
-      <form onSubmit={handleSubmit} className="space-y-4">
-
-             
+      <br />  
+      <form onSubmit={handleSubmit} className="space-y-4">           
         
-        <div>
-          <label htmlFor="age">Edad:</label>
-          <input
-            type="text"
-            id="age"
-            value={age}
-            onChange={(e) => setAge(e.target.value)}
-            className="w-full p-2 border border-gray-300 rounded"
-          />
-          
-        </div>
+
+        
         <div>
             <label htmlFor="sex">Sexo:</label>
             <div className="flex">
@@ -71,6 +63,27 @@ const ContactForm: React.FC = () => {
             </div>
         </div>
 
+        
+        <div>
+          <label>Edad:
+            <div className="flex">
+              <button className="bg-blue-500 text-white px-4 py-2 rounded" onClick={() => setCounter((parseInt(age) - 1).toString())}>
+                <span>−</span>
+              </button>
+              <input
+                type="number"
+                name="custom-input-number"
+                value={age === '' ? '0' : age}
+                onChange={(e) => setCounter(e.target.value)}
+                className="w-full p-2 border border-gray-300 rounded"
+              />
+              <button className="bg-blue-500 text-white px-4 py-2 rounded" onClick={() => setCounter((parseInt(age) + 1).toString())}>
+                <span>+</span>
+              </button>
+            </div>
+          </label>
+        </div>
+        
         <div>
           <label htmlFor="chestPainType">Tipo de Dolor de Pecho:</label>
           <input
@@ -153,10 +166,14 @@ const ContactForm: React.FC = () => {
           />
         </div>
 
+
         
+        <br />
+
+
 
         {/* Agrega más campos aquí según los requisitos */}
-        <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">
+        <button type="submit" className="group flex max-w-fit items-center justify-center space-x-2 border bg-blue-500 px-5 py-2 text-sm text-white transition-colors hover:bg-white hover:text-black rounded border-b-4 border-blue-700 hover:border-blue-500">
           Enviar
         </button>
       </form>
