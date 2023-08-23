@@ -121,7 +121,7 @@ const features = [
     title: "Enfermedades cardiovasculares",
     description:
       "Contenido educativo sobre las [enfermedades cardiovasculares](https://nextjs.org/).",
-      //large: true,
+      large: true,
     demo: (
       
       <Link href="formulario">
