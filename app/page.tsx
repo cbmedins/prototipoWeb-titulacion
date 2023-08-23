@@ -118,9 +118,9 @@ const features = [
     demo: <WebVitals />,
   },
   {
-    title: "Enfermedades cardiovasculares",
+    title: "ECV",
     description:
-      "Contenido educativo sobre las [enfermedades cardiovasculares](https://nextjs.org/).",
+      "Contenido educativo sobre las [Enfermedades Cardiovasculares](https://nextjs.org/).",
     demo: (
       
       <Link href="formulario">
