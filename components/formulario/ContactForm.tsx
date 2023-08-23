@@ -67,7 +67,7 @@ const ContactForm: React.FC = () => {
         <div>
           <label>Edad:
             <div className="flex">
-              <button className="bg-blue-500 text-white px-4 py-2 rounded" onClick={() => setCounter((parseInt(age) - 1).toString())}>
+              <button className="bg-blue-500 text-white px-10 py-2 rounded" onClick={() => setCounter((parseInt(age) - 1).toString())}>
                 <span>−</span>
               </button>
               <input
@@ -77,13 +77,13 @@ const ContactForm: React.FC = () => {
                 onChange={(e) => setCounter(e.target.value)}
                 className="w-full p-2 border border-gray-300 rounded"
               />
-              <button className="bg-blue-500 text-white px-4 py-2 rounded" onClick={() => setCounter((parseInt(age) + 1).toString())}>
+              <button className="bg-blue-500 text-white px-10 py-2 rounded" onClick={() => setCounter((parseInt(age) + 1).toString())}>
                 <span>+</span>
               </button>
             </div>
           </label>
         </div>
-        
+
         <div>
           <label htmlFor="chestPainType">Tipo de Dolor de Pecho:</label>
           <input
@@ -173,7 +173,7 @@ const ContactForm: React.FC = () => {
 
 
         {/* Agrega más campos aquí según los requisitos */}
-        <button type="submit" className="group flex max-w-fit items-center justify-center space-x-2 border bg-blue-500 px-5 py-2 text-sm text-white transition-colors hover:bg-white hover:text-black rounded border-b-4 border-blue-700 hover:border-blue-500">
+        <button type="submit" className="group flex max-w-fit items-center justify-center space-x-2 border bg-blue-500 px-10 py-2 text-sm text-white transition-colors hover:bg-white hover:text-black rounded border-b-4 border-blue-700 hover:border-blue-500">
           Enviar
         </button>
       </form>
