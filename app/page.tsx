@@ -121,7 +121,6 @@ const features = [
     title: "Enfermedades cardiovasculares",
     description:
       "Contenido educativo sobre las [enfermedades cardiovasculares](https://nextjs.org/).",
-      large: true,
     demo: (
       
       <Link href="formulario">
@@ -147,6 +146,8 @@ const features = [
     title: "Demostración interactiva",
     description:
       "[Demostración interactiva](https://nextjs.org/) del modelo predictivo.",
+      
+      large: true,
     demo: (
       <div className="grid grid-flow-col grid-rows-3 gap-10 p-10">
         <span className="font-mono font-semibold">useIntersectionObserver</span>
