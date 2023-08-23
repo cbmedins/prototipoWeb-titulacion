@@ -110,7 +110,6 @@ const features = [
     title: "Descripción del proyecto",
     description:
       "Breve introducción sobre el [proposito del proyecto](https://nextjs.org/).",
-    large: true,
   },
   {
     title: "Precisión del modelo",
@@ -122,7 +121,7 @@ const features = [
     title: "Enfermedades cardiovasculares",
     description:
       "Contenido educativo sobre las [enfermedades cardiovasculares](https://nextjs.org/).",
-      large: true,
+      //large: true,
     demo: (
       
       <Link href="formulario">
@@ -138,8 +137,7 @@ const features = [
       "[Recursos](https://nextjs.org/) relacionados con las enfermedades cardiovasculares y desarrollo del modelo.",
     demo: (
       <div className="flex items-center justify-center space-x-20">
-        <Image alt="Auth.js logo" src="/authjs.webp" width={50} height={50} />
-        <Image alt="Prisma logo" src="/prisma.svg" width={50} height={50} />
+        <Image alt="Auth.js logo" src="/heart_day.jpg" width={350} height={350}/>
       </div>
     ),
   },
