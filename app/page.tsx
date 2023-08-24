@@ -139,4 +139,15 @@ const features = [
       </div>
     ),
   },
+
+  {
+    title: "Precisión del modelo",
+    description:
+      "Descripción de como se recopilaron y utilizaron los datos para entrenar y evaluar el modelo.",
+    demo: (
+      <div className="flex items-center justify-center space-x-20">
+        <Image alt="heart-model " src="/heart_model.svg" width={200} height={200}/>
+      </div>
+    ),
+  },
 ];
