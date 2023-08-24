@@ -66,6 +66,7 @@ export default async function Home() {
   );
 }
 
+
 const features = [
   {
     title: "",
@@ -80,9 +81,11 @@ const features = [
     demo: (
       <div className="flex items-center justify-center h-screen">
       <div className="flex items-center justify-center space-x-20">
-        <Image alt="heart-prese" src="/heart_diag.svg" width={280} height={280}/>
+        <Image alt="heart-form" src="/heart_form.svg" width={280} height={280}/>
       </div>
     </div>
     ),
   },
+
+  
 ];
