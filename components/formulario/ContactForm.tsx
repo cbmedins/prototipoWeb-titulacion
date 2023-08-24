@@ -370,8 +370,8 @@ const ContactForm: React.FC = () => {
       {predictionValue !== null && (
         <div className="fixed inset-0 flex items-center justify-center z-50">
           <div className="absolute inset-0 bg-black opacity-60"></div>
-          <div className="z-10 bg-white rounded-lg p-4 max-w-md">
-            <p className="mb-2">El valor de la predicción es: {predictionValue}</p>
+          <div className="z-10 bg-white rounded-lg p-4 max-w-md ">
+            <p className="mb-2 text-lg">El valor de la predicción es: {predictionValue}</p>
             <button
               className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700"
               onClick={() => setPredictionValue(null)}
