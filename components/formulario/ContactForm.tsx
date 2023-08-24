@@ -4,7 +4,8 @@ import React, { useState, FormEvent } from 'react';
 import Tooltip from "@/components/shared/tooltip";
 
 const ContactForm: React.FC = () => {
-
+  
+  const [age, setCounter] = useState('0');
   const [sex, setSex] = useState('');
   const [chestPainType, setChestPainType] = useState('');
   const [restingBP, setRestingBP] = useState('');
@@ -14,8 +15,8 @@ const ContactForm: React.FC = () => {
   const [maxHR, setMaxHR] = useState('');
   const [exerciseAngina, setExerciseAngina] = useState('');
   const [oldpeak, setOldpeak] = useState('');
+  const [ST_Slope, setST_Slope] = useState('');
 
-  const [age, setCounter] = useState('0');
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -30,6 +31,7 @@ const ContactForm: React.FC = () => {
     console.log('MaxHR:', maxHR);
     console.log('ExerciseAngina:', exerciseAngina);
     console.log('Oldpeak:', oldpeak);
+    console.log('ST_Slope:', ST_Slope);
   };
 
   
@@ -187,36 +189,90 @@ const ContactForm: React.FC = () => {
 
         <div>
           <label htmlFor="restingECG">Resultados del Electrocardiograma en Reposo:</label>
-          <input
-            type="text"
-            id="restingECG"
-            value={restingECG}
-            onChange={(e) => setRestingECG(e.target.value)}
-            className="w-full p-2 border border-gray-300 rounded"
-          />
+          <div className="flex">
+            
+            <select
+                id="restingECG"
+                value={restingECG}
+                onChange={(e) => setRestingECG(e.target.value)}
+                className="w-full p-2 border border-gray-300 rounded"
+                >
+                <option value="0">LVH</option>
+                <option value="1">Normal</option>
+                <option value="2">St</option>
+            </select>
+            <Tooltip content="Precedent is an opinionated collection of components, hooks, and utilities for your Next.js project.">
+                <div className="flex w-36 cursor-default items-center justify-center rounded-md border border-gray-300 px-3 py-2 transition-all duration-75 hover:border-gray-800 focus:outline-none active:bg-gray-100">
+                <p className="text-gray-600">Tooltip</p>
+                </div>
+            </Tooltip>
+
+                  </div>
+
         </div>
+
         <div>
           <label htmlFor="maxHR">Ritmo Cardíaco Máximo Alcanzado:</label>
+          <div className="flex">
+
           <input
             type="text"
             id="maxHR"
             value={maxHR}
             onChange={(e) => setMaxHR(e.target.value)}
             className="w-full p-2 border border-gray-300 rounded"
-          />
+            />
+          <Tooltip content="MaxHR (valor numérico entre 60 y 202).">
+                <div className="flex w-36 cursor-default items-center justify-center rounded-md border border-gray-300 px-3 py-2 transition-all duration-75 hover:border-gray-800 focus:outline-none active:bg-gray-100">
+                <p className="text-gray-600">Tooltip</p>
+                </div>
+            </Tooltip>
+            </div>
         </div>
+
+
         <div>
           <label htmlFor="exerciseAngina">Angina Inducida por Ejercicio:</label>
-          <input
-            type="text"
-            id="exerciseAngina"
-            value={exerciseAngina}
-            onChange={(e) => setExerciseAngina(e.target.value)}
-            className="w-full p-2 border border-gray-300 rounded"
-          />
+          <div >
+            <ul className="items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+
+              <li className="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                <div className="flex items-center pl-3">
+                  <input
+                    type="radio"
+                    id="exerciseAngina1"
+                    name="exerciseAngina"
+                    value="1"
+                    onChange={(e) => setExerciseAngina(e.target.value)}
+                    className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                  />
+                  <label 
+                  className="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Si </label>
+                </div>
+              </li>
+
+              <li className="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                <div className="flex items-center pl-3">
+                  <input
+                    type="radio"
+                    id="exerciseAngina0"
+                    name="exerciseAngina"
+                    value="0"
+                    onChange={(e) => setExerciseAngina(e.target.value)}
+                    className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                    />
+                  <label 
+                  className="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">No </label>
+                </div>
+              </li>
+            </ul>
         </div>
+        </div>
+
+
         <div>
           <label htmlFor="oldpeak">Depresión del Segmento ST:</label>
+          <div className="flex">
           <input
             type="text"
             id="oldpeak"
@@ -224,8 +280,38 @@ const ContactForm: React.FC = () => {
             onChange={(e) => setOldpeak(e.target.value)}
             className="w-full p-2 border border-gray-300 rounded"
           />
+          <Tooltip content="Depresión del segmento ST (valor numérico).">
+                <div className="flex w-36 cursor-default items-center justify-center rounded-md border border-gray-300 px-3 py-2 transition-all duration-75 hover:border-gray-800 focus:outline-none active:bg-gray-100">
+                <p className="text-gray-600">Tooltip</p>
+                </div>
+            </Tooltip>
+            </div>
         </div>
 
+        
+        <div>
+          <label htmlFor="ST_Slope">Inclinación o pendiente del segmento ST:</label>
+          <div className="flex">
+            
+            <select
+                id="ST_Slope"
+                value={ST_Slope}
+                onChange={(e) => setST_Slope(e.target.value)}
+                className="w-full p-2 border border-gray-300 rounded"
+                >
+                <option value="0">Up</option>
+                <option value="1">Flat</option>
+                <option value="2">Down</option>
+            </select>
+            <Tooltip content="Precedent is an opinionated collection of components, hooks, and utilities for your Next.js project.">
+                <div className="flex w-36 cursor-default items-center justify-center rounded-md border border-gray-300 px-3 py-2 transition-all duration-75 hover:border-gray-800 focus:outline-none active:bg-gray-100">
+                <p className="text-gray-600">Tooltip</p>
+                </div>
+            </Tooltip>
+
+                  </div>
+
+        </div>
 
         
         <br />
