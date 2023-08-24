@@ -17,8 +17,11 @@ const ContactForm: React.FC = () => {
   const [oldpeak, setOldpeak] = useState('');
   const [ST_Slope, setST_Slope] = useState('');
 
+  const [predictionValue, setPredictionValue] = useState<number | null>(null);
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // Aquí puedes realizar acciones con los datos del formulario, como enviarlos a un servidor.
     console.log('Age:', age);
@@ -32,8 +35,43 @@ const ContactForm: React.FC = () => {
     console.log('ExerciseAngina:', exerciseAngina);
     console.log('Oldpeak:', oldpeak);
     console.log('ST_Slope:', ST_Slope);
-  };
 
+    const data = {
+      Age: parseInt(age),
+      Sex: parseInt(sex),
+      ChestPainType: parseInt(chestPainType),
+      RestingBP: parseInt(restingBP),
+      Cholesterol: parseInt(cholesterol),
+      FastingBS: parseInt(fastingBS),
+      RestingECG: parseInt(restingECG),
+      MaxHR: parseInt(maxHR),
+      ExerciseAngina: parseInt(exerciseAngina),
+      Oldpeak: parseFloat(oldpeak),
+      ST_Slope: parseInt(ST_Slope),
+      
+    };
+
+    try {
+      const response = await fetch('http://127.0.0.1:8000/predict/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        console.log('Resultado del servidor:', result);
+      setPredictionValue(result.prediction); // Asegúrate de que "prediction" sea el nombre correcto en tu respuesta del servidor
+    } else {
+      console.error('Error al enviar los datos al servidor.');
+    }
+  } catch (error) {
+    console.error('Error de conexión:', error);
+  }
+};
+  
   
 
   return (
@@ -322,7 +360,31 @@ const ContactForm: React.FC = () => {
         <button type="submit" className="group flex max-w-fit items-center justify-center space-x-2 border bg-blue-500 px-10 py-2 text-sm text-white transition-colors hover:bg-white hover:text-black rounded border-b-4 border-blue-700 hover:border-blue-500">
           Enviar
         </button>
+
+
+        
+
+
       </form>
+
+      {predictionValue !== null && (
+        <div className="fixed inset-0 flex items-center justify-center z-50">
+          <div className="absolute inset-0 bg-black opacity-60"></div>
+          <div className="z-10 bg-white rounded-lg p-4 max-w-md">
+            <p className="mb-2">El valor de la predicción es: {predictionValue}</p>
+            <button
+              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700"
+              onClick={() => setPredictionValue(null)}
+            >
+              Cerrar
+            </button>
+          </div>
+        </div>
+      )}
+
+      
+      
+
     </div>
   );
 };
