@@ -109,34 +109,33 @@ const features = [
   {
     title: "Descripción del proyecto",
     description:
-      "Breve introducción sobre el [proposito del proyecto](https://nextjs.org/).",
+    "Breve introducción sobre el [proposito del proyecto](https://nextjs.org/).",
+    demo: (
+      <div className="flex items-center justify-center space-x-20">
+        <Image alt="heart-test " src="/heart_test.svg" width={150} height={150}/>
+      </div>
+    ),
   },
-  {
-    title: "Precisión del modelo",
-    description:
-      "Descripción de como se recopilaron y utilizaron los datos para entrenar y evaluar el [modelo](https://nextjs.org/).",
-    demo: <WebVitals />,
-  },
+
   {
     title: "ECV",
     description:
       "Contenido educativo sobre las [Enfermedades Cardiovasculares](https://nextjs.org/).",
     demo: (
-      
-      <Link href="formulario">
-              <div className="group flex max-w-fit items-center justify-center space-x-2 border bg-blue-500 px-5 py-2 text-sm text-white transition-colors hover:bg-white hover:text-black rounded border-b-4 border-blue-700 hover:border-blue-500">
-                <span className="font-semibold">Leer más...</span>
-              </div>
-            </Link>
+      <div className="flex items-center justify-center space-x-20">
+        <Image alt="heart-fail " src="/heart_fail.svg" width={180} height={180}/>
+      </div>
     ),
   },
+
+
   {
     title: "Recursos adicionales",
     description:
       "[Recursos](https://nextjs.org/) relacionados con las enfermedades cardiovasculares y desarrollo del modelo.",
     demo: (
       <div className="flex items-center justify-center space-x-20">
-        <Image alt="Auth.js logo" src="/heart_day.jpg" width={350} height={350}/>
+        <Image alt="heart-model " src="/heart_model.svg" width={200} height={200}/>
       </div>
     ),
   },
@@ -149,13 +148,8 @@ const features = [
       
       large: true,
     demo: (
-      <div className="grid grid-flow-col grid-rows-3 gap-10 p-10">
-        <span className="font-mono font-semibold">useIntersectionObserver</span>
-        <span className="font-mono font-semibold">useLocalStorage</span>
-        <span className="font-mono font-semibold">useScroll</span>
-        <span className="font-mono font-semibold">nFormatter</span>
-        <span className="font-mono font-semibold">capitalize</span>
-        <span className="font-mono font-semibold">truncate</span>
+      <div className="flex items-center justify-center space-x-20">
+        <Image alt="heart-prese " src="/heart_prese.svg" width={280} height={280}/>
       </div>
     ),
   },

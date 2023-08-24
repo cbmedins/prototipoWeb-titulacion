@@ -74,18 +74,15 @@ const features = [
     large: true,
   },
   {
-    title: "Hooks, utilities, and more",
+    title: " ",
     description:
-      "Precedent offers a collection of hooks, utilities, and `@vercel/og`",
+      " ",
     demo: (
-      <div className="grid grid-flow-col grid-rows-3 gap-10 p-10">
-        <span className="font-mono font-semibold">useIntersectionObserver</span>
-        <span className="font-mono font-semibold">useLocalStorage</span>
-        <span className="font-mono font-semibold">useScroll</span>
-        <span className="font-mono font-semibold">nFormatter</span>
-        <span className="font-mono font-semibold">capitalize</span>
-        <span className="font-mono font-semibold">truncate</span>
+      <div className="flex items-center justify-center h-screen">
+      <div className="flex items-center justify-center space-x-20">
+        <Image alt="heart-prese" src="/heart_diag.svg" width={280} height={280}/>
       </div>
+    </div>
     ),
   },
 ];
