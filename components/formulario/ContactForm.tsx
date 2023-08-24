@@ -81,7 +81,7 @@ const ContactForm: React.FC = () => {
       <br />  
       <form onSubmit={handleSubmit} className="space-y-4">           
         
-
+      <h2 className="bg-gradient-to-br from-black to-stone-500 bg-clip-text font-display text-x font-bold text-transparent">Sección de Información Personal:</h2>
         
         <div>
             <label htmlFor="sex">Sexo:</label>
@@ -107,7 +107,7 @@ const ContactForm: React.FC = () => {
         <div>
           <label>Edad:
             <div className="flex">
-              <button className="bg-blue-500 text-white px-10 py-2 rounded" onClick={() => setCounter((parseInt(age) - 1).toString())}>
+              <button className="bg-orange-500 text-white px-12 py-2 rounded" onClick={() => setCounter((parseInt(age) - 1).toString())}>
                 <span>−</span>
               </button>
               <input
@@ -117,12 +117,15 @@ const ContactForm: React.FC = () => {
                 onChange={(e) => setCounter(e.target.value)}
                 className="w-full p-2 border border-gray-300 rounded text-center"
               />
-              <button className="bg-blue-500 text-white px-10 py-2 rounded" onClick={() => setCounter((parseInt(age) + 1).toString())}>
+              <button className="bg-orange-500 text-white px-12 py-2 rounded" onClick={() => setCounter((parseInt(age) + 1).toString())}>
                 <span>+</span>
               </button>
             </div>
           </label>
         </div>
+
+        <h2 className="bg-gradient-to-br from-black to-stone-500 bg-clip-text font-display text-x font-bold text-transparent">Sección de Datos Médicos Generales:</h2>  
+
 
         <div>
           <label htmlFor="chestPainType">Tipo de Dolor de Pecho:</label>
@@ -200,7 +203,7 @@ const ContactForm: React.FC = () => {
                     className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
                   />
                   <label 
-                  className="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Mayor que 120 mg/dl </label>
+                  className="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Mayor que 120 mg/dl</label>
                 </div>
               </li>
 
@@ -215,15 +218,14 @@ const ContactForm: React.FC = () => {
                     className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
                     />
                   <label 
-                  className="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Lo contrario </label>
+                  className="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Menor o igual a 120 mg/dl</label>
                 </div>
               </li>
             </ul>
-
-          
-
         </div>
         </div>
+        
+        <h2 className="bg-gradient-to-br from-black to-stone-500 bg-clip-text font-display text-x font-bold text-transparent">Sección de Resultados de Pruebas:</h2> 
 
         <div>
           <label htmlFor="restingECG">Resultados del Electrocardiograma en Reposo:</label>
