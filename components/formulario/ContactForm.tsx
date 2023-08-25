@@ -107,7 +107,7 @@ const ContactForm: React.FC = () => {
         <div>
           <label>Edad:
             <div className="flex">
-              <button className="bg-orange-500 text-white px-12 py-2 rounded" onClick={() => setCounter((parseInt(age) - 1).toString())}>
+              <button className="bg-blue-500 text-white px-12 py-2 rounded" onClick={() => setCounter((parseInt(age) - 1).toString())}>
                 <span>−</span>
               </button>
               <input
@@ -117,7 +117,7 @@ const ContactForm: React.FC = () => {
                 onChange={(e) => setCounter(e.target.value)}
                 className="w-full p-2 border border-gray-300 rounded text-center"
               />
-              <button className="bg-orange-500 text-white px-12 py-2 rounded" onClick={() => setCounter((parseInt(age) + 1).toString())}>
+              <button className="bg-blue-500 text-white px-12 py-2 rounded" onClick={() => setCounter((parseInt(age) + 1).toString())}>
                 <span>+</span>
               </button>
             </div>
