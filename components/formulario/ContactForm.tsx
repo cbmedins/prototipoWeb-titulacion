@@ -95,7 +95,7 @@ const ContactForm: React.FC = () => {
                     <option value="0">Masculino</option>
                     <option value="1">Femenino</option>
                 </select>
-                <Tooltip content="Precedent is an opinionated collection of components, hooks, and utilities for your Next.js project.">
+                <Tooltip content="Componente de ayuda.">
                     <div className="flex w-36 cursor-default items-center justify-center rounded-md border border-gray-300 px-3 py-2 transition-all duration-75 hover:border-gray-800 focus:outline-none active:bg-gray-100">
                     <p className="text-gray-600">Tooltip</p>
                     </div>
@@ -141,7 +141,7 @@ const ContactForm: React.FC = () => {
                     <option value="2">NAP Dolor No Anginoso</option>
                     <option value="3">TA Angina Típica</option>
                 </select>
-                <Tooltip content="Precedent is an opinionated collection of components, hooks, and utilities for your Next.js project.">
+                <Tooltip content="Componente de ayuda.">
                     <div className="flex w-36 cursor-default items-center justify-center rounded-md border border-gray-300 px-3 py-2 transition-all duration-75 hover:border-gray-800 focus:outline-none active:bg-gray-100">
                     <p className="text-gray-600">Tooltip</p>
                     </div>
@@ -241,7 +241,7 @@ const ContactForm: React.FC = () => {
                 <option value="1">Normal</option>
                 <option value="2">St</option>
             </select>
-            <Tooltip content="Precedent is an opinionated collection of components, hooks, and utilities for your Next.js project.">
+            <Tooltip content="Componente de ayuda.">
                 <div className="flex w-36 cursor-default items-center justify-center rounded-md border border-gray-300 px-3 py-2 transition-all duration-75 hover:border-gray-800 focus:outline-none active:bg-gray-100">
                 <p className="text-gray-600">Tooltip</p>
                 </div>
@@ -343,7 +343,7 @@ const ContactForm: React.FC = () => {
                 <option value="1">Flat</option>
                 <option value="2">Down</option>
             </select>
-            <Tooltip content="Precedent is an opinionated collection of components, hooks, and utilities for your Next.js project.">
+            <Tooltip content="Componente de ayuda.">
                 <div className="flex w-36 cursor-default items-center justify-center rounded-md border border-gray-300 px-3 py-2 transition-all duration-75 hover:border-gray-800 focus:outline-none active:bg-gray-100">
                 <p className="text-gray-600">Tooltip</p>
                 </div>
