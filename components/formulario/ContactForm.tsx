@@ -411,7 +411,7 @@ const ContactForm: React.FC = () => {
         <button type="submit" className={"group flex max-w-fit items-center justify-center space-x-2 border bg-blue-500 px-10 py-2 text-sm text-white transition-colors hover:bg-white hover:text-black rounded border-b-4 border-blue-700 hover:border-blue-500"}>
           {isLoading ? (
             <>
-            <Image src="/heart_split" alt="loading"  className="w-6 h-6 animate-spin"/>
+            <Image src="/heart_split" alt="loading"  className="w-6 h-6 animate-spin" width={25} height={25}/>
             Cargando...
             
             </>
@@ -445,7 +445,7 @@ const ContactForm: React.FC = () => {
       </a>
           El valor de la predicción es: {predictionValue}
           <p className="text-sm text-gray-500">
-          El resultado de la predicción indica que la persona está clasificada como '{predictionValue === 1 ? 'Enferma' : 'Sana'}' según el criterio de este prototipo. Esto implica que se ha detectado una condición de enfermedad cardiovascular o un riesgo elevado de desarrollarla.
+          El resultado de la predicción indica que la persona está clasificada como {predictionValue === 1 ? 'Enferma' : 'Sana'} según el criterio de este prototipo. Esto implica que se ha detectado una condición de enfermedad cardiovascular o un riesgo elevado de desarrollarla.
           </p>
           <button
             className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700"
