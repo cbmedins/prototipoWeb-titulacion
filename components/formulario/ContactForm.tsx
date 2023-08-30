@@ -1,6 +1,8 @@
 "use client";
 import React, { useState, FormEvent } from 'react';
 
+import Modal from "@/components/shared/modal";
+
 import Tooltip from "@/components/shared/tooltip";
 
 const ContactForm: React.FC = () => {
@@ -17,7 +19,14 @@ const ContactForm: React.FC = () => {
   const [oldpeak, setOldpeak] = useState('');
   const [ST_Slope, setST_Slope] = useState('');
 
+  //const [predictionValue, setPredictionValue] = useState<number | null>(null);
+
   const [predictionValue, setPredictionValue] = useState<number | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const [error, setError] = useState<string | null>(null);
+
+  const [isLoading, setIsLoading] = useState(false);
 
 
 
@@ -36,6 +45,8 @@ const ContactForm: React.FC = () => {
     console.log('Oldpeak:', oldpeak);
     console.log('ST_Slope:', ST_Slope);
 
+    setIsLoading(true); // Inicia la carga
+
     const data = {
       Age: parseInt(age),
       Sex: parseInt(sex),
@@ -48,9 +59,15 @@ const ContactForm: React.FC = () => {
       ExerciseAngina: parseInt(exerciseAngina),
       Oldpeak: parseFloat(oldpeak),
       ST_Slope: parseInt(ST_Slope),
+
+    
       
     };
-
+    const mockApiResponse = {
+      ok: true,
+      json: async () => ({ prediction: 75 }),
+    };
+/*
     try {
       const response = await fetch('https://modelo-docker.onrender.com/predict/', {
         method: 'POST',
@@ -71,6 +88,35 @@ const ContactForm: React.FC = () => {
     console.error('Error de conexión:', error);
   }
 };
+*/
+
+  try {
+    const response = await fetch('https://modelo-docker.onrender.com/predict/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        console.log('Resultado del servidor:', result);
+        setPredictionValue(result.prediction);
+
+        // Abre el modal
+        setIsModalOpen(true);
+      } else {
+        console.error('Error al enviar los datos al servidor.');
+        setError('Error al enviar los datos al servidor.');
+      }
+    } catch (error) {
+      console.error('Error de conexión:', error);
+      setError('Error de conexión.');
+    } finally {
+      setIsLoading(false); // Finaliza la carga, ya sea éxito o error
+    }
+  };
   
   
 
@@ -79,6 +125,7 @@ const ContactForm: React.FC = () => {
     <br />
       <h1 className="bg-gradient-to-br from-black to-stone-500 bg-clip-text font-display text-xl font-bold text-transparent md:text-3xl md:font-normal">Formulario para la predicción</h1>      
       <br />  
+      
       <form onSubmit={handleSubmit} className="space-y-4">           
         
       <h2 className="bg-gradient-to-br from-black to-stone-500 bg-clip-text font-display text-x font-bold text-transparent">Sección de Información Personal:</h2>
@@ -359,30 +406,61 @@ const ContactForm: React.FC = () => {
 
 
         {/* Agrega más campos aquí según los requisitos */}
-        <button type="submit" className="group flex max-w-fit items-center justify-center space-x-2 border bg-blue-500 px-10 py-2 text-sm text-white transition-colors hover:bg-white hover:text-black rounded border-b-4 border-blue-700 hover:border-blue-500">
-          Enviar
+        <button type="submit" className={"group flex max-w-fit items-center justify-center space-x-2 border bg-blue-500 px-10 py-2 text-sm text-white transition-colors hover:bg-white hover:text-black rounded border-b-4 border-blue-700 hover:border-blue-500"}>
+          {isLoading ? (
+            <>
+            <img src="/heart_split" alt="loading"  className="w-6 h-6 animate-spin"/>
+            Cargando...
+            
+            </>
+          ) : (
+            'Enviar'
+          )}
         </button>
 
-
-        
-
+        {error && (
+        <div className="text-red-600 mb-4">
+          <p>Error: {error}</p>
+        </div>
+      )}
+      
 
       </form>
 
-      {predictionValue !== null && (
-        <div className="fixed inset-0 flex items-center justify-center z-50">
-          <div className="absolute inset-0 bg-black opacity-60"></div>
-          <div className="z-10 bg-white rounded-lg p-4 max-w-md ">
-            <p className="mb-2 text-lg">El valor de la predicción es: {predictionValue}</p>
-            <button
-              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700"
-              onClick={() => setPredictionValue(null)}
-            >
-              Cerrar
-            </button>
-          </div>
+      
+
+      <Modal showModal={isModalOpen} setShowModal={setIsModalOpen}>
+        <div className="w-full overflow-hidden shadow-xl md:max-w-md md:rounded-2xl md:border md:border-gray-200">
+        <div className="flex flex-col items-center justify-center space-y-3 border-b border-gray-200 bg-white px-4 py-6 pt-8 text-center md:px-16">
+        <a href="https://codytech.dev">
+        <img
+          src="/CardioBlue.png"
+          alt="Cardio Logo"
+          className="h-10 w-10 "
+              width={20}
+              height={20}
+        />
+      </a>
+          El valor de la predicción es: {predictionValue}
+          <p className="text-sm text-gray-500">
+          El resultado de la predicción indica que la persona está clasificada como '{predictionValue === 1 ? 'Enferma' : 'Sana'}' según el criterio de este prototipo. Esto implica que se ha detectado una condición de enfermedad cardiovascular o un riesgo elevado de desarrollarla.
+          </p>
+          <button
+            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700"
+            onClick={()=> {
+
+              setIsModalOpen(false)
+              window.location.href = '/'; // Redirige a la página de inicio
+
+            } }
+            
+          >
+            Cerrar
+          </button>
         </div>
-      )}
+        </div>
+        
+      </Modal>
 
       
       
