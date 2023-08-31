@@ -60,7 +60,7 @@ const ContactForm: React.FC <{ email?: string }> = ({ email = ''}) => {
     console.log('ExerciseAngina:', exerciseAngina);
     console.log('Oldpeak:', oldpeak);
     console.log('ST_Slope:', ST_Slope);
-    console.log('hola',email);
+    console.log('dato del email:',email);
     setIsLoading(true); // Inicia la carga
 
     const data = {

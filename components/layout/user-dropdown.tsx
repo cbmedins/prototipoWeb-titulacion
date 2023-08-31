@@ -15,12 +15,12 @@ import ContactForm from "@/components/formulario/ContactForm"; // Importa el com
 export default function UserDropdown({ session }: { session: Session }) {
   const { email, image } = session?.user || {};
   const [openPopover, setOpenPopover] = useState(false);
-
+  
   if (!email) return null;
 
   //console.log('Contenido de session:', ////email); // Agrega este log
 
-  <ContactForm email={email} />
+  <ContactForm email={"caleta"} />
 
   return (
     <div className="relative inline-block text-left">
@@ -64,6 +64,7 @@ export default function UserDropdown({ session }: { session: Session }) {
             height={40}
           />
         </button>
+        
       </Popover>
 
 
