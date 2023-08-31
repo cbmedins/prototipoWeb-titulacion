@@ -43,16 +43,6 @@ const ContactForm: React.FC = () => {
   //console.log('Datos de la sesión:', session);
 
 
-  const { data: session } = useSession();
-
-  // Muestra los datos de la sesión o un mensaje si no existe
-  if (session) {
-    console.log('Datos de la sesión:', session);
-  } else {
-    console.log('No existe una sesión.');
-  }
-
-
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
