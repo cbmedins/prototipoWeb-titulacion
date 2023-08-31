@@ -85,29 +85,7 @@ const ContactForm: React.FC <{ email: string }> = ({ email }) => {
       ok: true,
       json: async () => ({ prediction: 75 }),
     };
-/*
-    try {
-      const response = await fetch('https://modelo-docker.onrender.com/predict/', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
-
-      if (response.ok) {
-        const result = await response.json();
-        console.log('Resultado del servidor:', result);
-      setPredictionValue(result.prediction); // Asegúrate de que "prediction" sea el nombre correcto en tu respuesta del servidor
-    } else {
-      console.error('Error al enviar los datos al servidor.');
-    }
-  } catch (error) {
-    console.error('Error de conexión:', error);
-  }
-};
-*/
-
+    
   try {
    // const response = await fetch('https://modelo-docker.onrender.com/predict/', {
     const response = await fetch('http://localhost:8000/predict/', {
@@ -140,6 +118,8 @@ const ContactForm: React.FC <{ email: string }> = ({ email }) => {
     }
   };
  
+  console.log('Contenido de session:', email);
+
   return (
     <div className="p-4">
     <br />
@@ -148,8 +128,8 @@ const ContactForm: React.FC <{ email: string }> = ({ email }) => {
       
       <form onSubmit={handleSubmit} className="space-y-4">           
       
-      <p>Usuario actual: {email}</p>
-      
+    
+
       <h2 className="bg-gradient-to-br from-black to-stone-500 bg-clip-text font-display text-x font-bold text-transparent">Sección de Información Personal:</h2>
         
         <div>
