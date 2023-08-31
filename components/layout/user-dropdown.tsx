@@ -18,7 +18,7 @@ export default function UserDropdown({ session }: { session: Session }) {
 
   if (!email) return null;
 
-  console.log('Contenido de session:', email); // Agrega este log
+  //console.log('Contenido de session:', ////email); // Agrega este log
 
   <ContactForm email={email} />
 
