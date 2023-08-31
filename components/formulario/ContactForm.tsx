@@ -7,11 +7,13 @@ import Modal from "@/components/shared/modal";
 
 import Tooltip from "@/components/shared/tooltip";
 
-
-import UserDropdown from "@/components/layout/user-dropdown";
-import NavBar from "@/components/layout/navbar"; // Importa el componente NavBar
-
 import { useSession } from 'next-auth/react';
+import { Session } from "next-auth";
+
+
+const { data: session } = useSession(); // Obtiene la información de la sesión
+
+console.log('Nombre del usuario:', session?.user);
 
 
 
@@ -39,9 +41,9 @@ const ContactForm: React.FC = () => {
 
   const [isLoading, setIsLoading] = useState(false);
 
-  const { data: session } = useSession(); // La propiedad 'data' contiene la información de la sesión
 
-  console.log('Nombre del usuario:', session?.user?.name);
+
+
 
 
   // Usa el hook de sesión aquí
