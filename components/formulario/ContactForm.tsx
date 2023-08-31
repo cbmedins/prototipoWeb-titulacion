@@ -46,6 +46,8 @@ const ContactForm: React.FC = () => {
     console.log('Credenciales del usuario:', session.user); // Muestra las credenciales del usuario
   }
 
+
+
   
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
