@@ -59,15 +59,15 @@ import UserCredentialsLogger from "@/components/layout/UserCredentialsLogger";
 
 // ...
 
-// Dentro del componente de la página
+
 const Page = () => {
-  const { data: session } = useSession(); // Obtén la sesión del usuario
+  const { data: session } = useSession();
 
   return (
     <div>
+      <h1>Dashboard</h1>
+      <UserCredentialsLogger session={session} />
       {/* ... Otro contenido de la página */}
-      
-      <UserCredentialsLogger session={session} /> {/* Pasar la sesión al componente */}
     </div>
   );
 };
