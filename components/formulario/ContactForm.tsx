@@ -110,9 +110,7 @@ const ContactForm: React.FC = () => {
         console.log('Resultado del servidor:', result);
         setPredictionValue(result.prediction);
 
-        // Usa el hook de sesión aquí
-        const session = useSession();
-        console.log('Datos de la sesión:', session);
+        
 
 
         // Abre el modal
@@ -129,7 +127,9 @@ const ContactForm: React.FC = () => {
     }
   };
   
-  
+  // Usa el hook de sesión aquí
+  const session = useSession();
+  console.log('Datos de la sesión:', session);
 
   return (
     <div className="p-4">
