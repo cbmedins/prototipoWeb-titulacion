@@ -61,6 +61,7 @@ const ContactForm: React.FC <{ email?: string }> = ({ email = ''}) => {
     console.log('Oldpeak:', oldpeak);
     console.log('ST_Slope:', ST_Slope);
     console.log('dato del email:',email);
+    
     setIsLoading(true); // Inicia la carga
 
     const data = {
@@ -110,7 +111,7 @@ const ContactForm: React.FC <{ email?: string }> = ({ email = ''}) => {
       }
     } catch (error) {
       console.error('Error de conexión:', error);
-      setError('Error de conexión.');
+      setError('Error de conexión.  ');
     } finally {
       setIsLoading(false); // Finaliza la carga, ya sea éxito o error
     }
