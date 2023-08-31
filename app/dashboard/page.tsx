@@ -10,6 +10,7 @@ import { nFormatter } from "@/lib/utils";
 import ContactForm from "@/components/formulario/ContactForm";
 import Cardform from "@/components/home/card-form";
 
+/*
 export default async function Home() {
   
 
@@ -41,7 +42,6 @@ export default async function Home() {
             style={{ animationDelay: "0.3s", animationFillMode: "forwards" }}
           >
             
-           
   
           </div>
         </div>
@@ -50,4 +50,19 @@ export default async function Home() {
     </>
   );
 }
+*/
+import { Session } from "next-auth";
 
+interface Props {
+  session: Session;
+}
+
+export default function Home({ session }: Props) {
+  const { user } = session;
+
+  if (!user) return null;
+
+  console.log("Credenciales del usuario:", user);
+
+  return null;
+}
