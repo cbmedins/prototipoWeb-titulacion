@@ -1,3 +1,5 @@
+"use client";
+
 import Card from "@/components/home/card-form";
 import Balancer from "react-wrap-balancer";
 import { DEPLOY_URL } from "@/lib/constants";
@@ -10,8 +12,15 @@ import { nFormatter } from "@/lib/utils";
 import ContactForm from "@/components/formulario/ContactForm";
 import Cardform from "@/components/home/card-form";
 
-export default async function Home() {
-  
+import React from "react";
+import { Session } from "next-auth";
+import { useState } from "react";
+
+export default async function Home({ session }: { session: Session }) {
+  const { email } = session?.user || {};
+  const [openPopover, setOpenPopover] = useState(false);
+
+  if (!email) return null;
 
     return (
       <>
@@ -44,6 +53,11 @@ export default async function Home() {
            
   
           </div>
+        <div>
+          <h1>Nombre del usuario: {email}</h1>
+        </div>
+
+
         </div>
         
       
