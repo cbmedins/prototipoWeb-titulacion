@@ -43,7 +43,14 @@ const ContactForm: React.FC = () => {
   //console.log('Datos de la sesión:', session);
 
 
+  const { data: session } = useSession();
 
+  // Muestra los datos de la sesión o un mensaje si no existe
+  if (session) {
+    console.log('Datos de la sesión:', session);
+  } else {
+    console.log('No existe una sesión.');
+  }
 
 
 
@@ -138,18 +145,7 @@ const ContactForm: React.FC = () => {
       setIsLoading(false); // Finaliza la carga, ya sea éxito o error
     }
   };
-  
-  const { data: session } = useSession();
-
-  // Muestra los datos de la sesión o un mensaje si no existe
-  if (session) {
-    console.log('Datos de la sesión:', session);
-  } else {
-    console.log('No existe una sesión.');
-  }
-
  
-
   return (
     <div className="p-4">
     <br />
