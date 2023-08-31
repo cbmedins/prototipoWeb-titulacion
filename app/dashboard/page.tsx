@@ -12,56 +12,58 @@ import { nFormatter } from "@/lib/utils";
 import ContactForm from "@/components/formulario/ContactForm";
 import Cardform from "@/components/home/card-form";
 
-import React from "react";
-import { Session } from "next-auth";
 import { useState } from "react";
-
-export default async function Home({ session }: { session: Session }) {
-  const { email } = session?.user || {};
+import { signOut } from "next-auth/react";
+import { LayoutDashboard, LogOut } from "lucide-react";
+import Popover from "@/components/shared/popover";
+import { Session } from "next-auth";
+export default function UserDropdown({ session }: { session: Session }) {
+  const { email, image } = session?.user || {};
   const [openPopover, setOpenPopover] = useState(false);
 
   if (!email) return null;
 
-    return (
-      <>
-        <div>
-          
-          <h1
-            className=" bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 bg-clip-text text-transparent text-4xl font-bold tracking-[-0.02em] animate-fade-up md:text-7xl text-center"
-            style={{ animationDelay: "0.15s", animationFillMode: "forwards" }}
-          >
-            <Balancer>Sistema Predictivo de Enfermedades Cardiovasculares</Balancer>
-          </h1>
-          <p
-            className="mt-6 animate-fade-up text-center text-gray-800 opacity-0 md:text-xl"
-            style={{ animationDelay: "0.25s", animationFillMode: "forwards" }}
-          >
-            <Balancer>
-            Proyecto de titulacion: Deteccion temprana de enfermedades cardiovasculares mediante un modelo predictivo basado en tecnicas de Deep Learning. 
-            </Balancer>
-          </p>
-  
-          <p>
-  
-          </p>
-  
-          <div
-            className="mx-auto mt-6 flex animate-fade-up items-center justify-center space-x-5 opacity-0"
-            style={{ animationDelay: "0.3s", animationFillMode: "forwards" }}
-          >
-            
-           
-  
-          </div>
-        <div>
-          <h1>Nombre del usuario: {email}</h1>
-        </div>
+  console.log('Contenido de session:', email); // Agrega este log
 
 
-        </div>
+  return (
+    
+    <div className="relative inline-block text-left">
+      <Popover
         
-      
-    </>
+        content={
+          
+          <div className="w-full rounded-md bg-white p-2 sm:w-56">
+            {
+              
+            
+            }
+
+            
+          </div>
+        }
+        align="end"
+        openPopover={openPopover}
+        setOpenPopover={setOpenPopover}
+      >
+        <button
+          onClick={() => setOpenPopover(!openPopover)}
+          className="flex h-8 w-8 items-center justify-center overflow-hidden rounded-full border border-gray-300 transition-all duration-75 focus:outline-none active:scale-95 sm:h-9 sm:w-9"
+        >
+          <Image
+            alt={email}
+            src={image || `https://avatars.dicebear.com/api/micah/${email}.svg`}
+            width={40}
+            height={40}
+          />
+        </button>
+        
+      </Popover>
+
+
+    </div>
   );
 }
+
+
 
