@@ -54,18 +54,22 @@ export default async function Home() {
   );
 }
 */
-import { Session } from "next-auth";
+import { useSession } from "next-auth/react";
+import UserCredentialsLogger from "@/components/layout/UserCredentialsLogger";
 
-interface UserCredentialsLoggerProps {
-  session: Session | null;
-}
+// ...
 
-const UserCredentialsLogger: React.FC<UserCredentialsLoggerProps> = ({ session }) => {
-  if (!session) return null;
+// Dentro del componente de la página
+const Page = () => {
+  const { data: session } = useSession(); // Obtén la sesión del usuario
 
-  console.log("Credenciales del usuario:", session.user);
-
-  return null;
+  return (
+    <div>
+      {/* ... Otro contenido de la página */}
+      
+      <UserCredentialsLogger session={session} /> {/* Pasar la sesión al componente */}
+    </div>
+  );
 };
 
-export default UserCredentialsLogger;
+export default Page;
