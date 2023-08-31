@@ -54,22 +54,4 @@ export default async function Home() {
   );
 }
 */
-import { useSession } from "next-auth/react";
-import UserCredentialsLogger from "@/components/layout/UserCredentialsLogger";
 
-// ...
-
-
-const Page = () => {
-  const { data: session } = useSession();
-
-  return (
-    <div>
-      <h1>Dashboard</h1>
-      <UserCredentialsLogger session={session} />
-      {/* ... Otro contenido de la página */}
-    </div>
-  );
-};
-
-export default Page;

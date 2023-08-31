@@ -5,6 +5,8 @@ import Link from "next/link";
 import useScroll from "@/lib/hooks/use-scroll";
 import { useSignInModal } from "./sign-in-modal";
 import UserDropdown from "./user-dropdown";
+import UserCredentialsLogger from "./UserCredentialsLogger";
+
 import { Session } from "next-auth";
 
 export default function NavBar({ session }: { session: Session | null }) {
@@ -53,6 +55,20 @@ export default function NavBar({ session }: { session: Session | null }) {
               </button>
             )}
           </div>
+          <div>
+            {session ? (
+              <UserCredentialsLogger session={session} />
+            ) : (
+              <button
+                className="rounded border bg-red-500 p-1.5 px-4 text-sm text-white transition-all hover:bg-white hover:text-black border-b-4 border-pink-700 font-semibold"
+                onClick={() => setShowSignInModal(true)}
+              >
+              Iniciar
+              </button>
+            )}
+          </div>
+
+
         </div>
       </div>
     </>
