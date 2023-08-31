@@ -7,6 +7,9 @@ import Modal from "@/components/shared/modal";
 
 import Tooltip from "@/components/shared/tooltip";
 
+import { useSession } from 'next-auth/react'; // Importa useSession de NextAuth.js
+
+
 const ContactForm: React.FC = () => {
   
   const [age, setCounter] = useState('0');
@@ -93,7 +96,8 @@ const ContactForm: React.FC = () => {
 */
 
   try {
-    const response = await fetch('https://modelo-docker.onrender.com/predict/', {
+   // const response = await fetch('https://modelo-docker.onrender.com/predict/', {
+    const response = await fetch('http://localhost:8000/predict/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -105,6 +109,13 @@ const ContactForm: React.FC = () => {
         const result = await response.json();
         console.log('Resultado del servidor:', result);
         setPredictionValue(result.prediction);
+
+        const { data: session } = useSession();
+        // Guardar los datos en la base de datos usando Prisma
+        
+
+        console.log('Datos guardados:', data);
+
 
         // Abre el modal
         setIsModalOpen(true);
