@@ -20,11 +20,13 @@ export default function UserDropdown({ session }: { session: Session }) {
 
   //console.log('Contenido de session:', ////email); // Agrega este log
 
-  <ContactForm email={email} />
+  
 
   return (
+    
     <div className="relative inline-block text-left">
       <Popover
+        
         content={
           <div className="w-full rounded-md bg-white p-2 sm:w-56">
             {
@@ -64,6 +66,7 @@ export default function UserDropdown({ session }: { session: Session }) {
             height={40}
           />
         </button>
+        <ContactForm email={email} />
       </Popover>
 
 
