@@ -125,7 +125,31 @@ const ContactForm: React.FC <{ email?: string }> = ({ email = ''}) => {
       <h1 className="bg-gradient-to-br from-black to-stone-500 bg-clip-text font-display text-xl font-bold text-transparent md:text-3xl md:font-normal">Formulario para la predicción</h1>      
       <br />  
       
-      <form onSubmit={handleSubmit} className="space-y-4">           
+      <form onSubmit={handleSubmit} className="space-y-4">  
+
+
+
+
+
+
+      {/* You can use the 'email' prop here */}
+        <h2 className="bg-gradient-to-br from-black to-stone-500 bg-clip-text font-display text-x font-bold text-transparent">
+          Sección de Información Personal:
+        </h2>
+        
+        <div>
+          <label>Correo Electrónico:</label>
+          <input
+            type="text"
+            value={email}
+            readOnly
+            className="w-full p-2 border border-gray-300 rounded"
+          />
+        </div>
+
+
+
+
       
     
 

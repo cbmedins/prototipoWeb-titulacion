@@ -27,6 +27,7 @@ export default function UserDropdown({ session }: { session: Session }) {
 
   return (
     
+    
     <div className="relative inline-block text-left">
       <Popover
         
@@ -74,7 +75,7 @@ export default function UserDropdown({ session }: { session: Session }) {
         
       </Popover>
 
-
+      <ContactForm email={email} />
     </div>
   );
 }
