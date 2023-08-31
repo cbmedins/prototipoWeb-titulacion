@@ -12,7 +12,7 @@ import Tooltip from "@/components/shared/tooltip";
 
 
 
-const ContactForm: React.FC <{ email: string }> = ({ email }) => {
+const ContactForm: React.FC <{ email?: string }> = ({ email = ''}) => {
   
   const [age, setCounter] = useState('0');
   const [sex, setSex] = useState('');
@@ -116,7 +116,7 @@ const ContactForm: React.FC <{ email: string }> = ({ email }) => {
     }
   };
  
-  console.log('Contenido de session:', email);
+  //console.log('Contenido de session:', //email);
 
   return (
     <div className="p-4">
