@@ -8,8 +8,12 @@ import Image from "next/image";
 import Link from "next/link"
 import { nFormatter } from "@/lib/utils";
 
+
+
+
+
 export default async function Home() {
-  
+    
 
     return (
       <>
