@@ -10,7 +10,11 @@ import { nFormatter } from "@/lib/utils";
 import ContactForm from "@/components/formulario/ContactForm";
 import Cardform from "@/components/home/card-form";
 
+import { useSession } from 'next-auth/react'; ////
+
+
 export default async function Home() {
+  const { data: session } = useSession(); // Obtiene la sesión actual /////
   
 
     return (
@@ -45,6 +49,7 @@ export default async function Home() {
           </div>
         </div>
         
+        
       <div className="my-10 grid w-full max-w-screen-xl animate-fade-up grid-cols-1 gap-5 px-5 md:grid-cols-3 xl:px-0">
         {features.map(({ title, description, demo, large }) => (
           <Cardform
@@ -53,8 +58,8 @@ export default async function Home() {
             description={description}
             demo={
               title === "" ? (
-                <ContactForm />
-              ) : (
+                <ContactForm email={session?.user?.email || undefined} /> // Pasa el correo electrónico si está disponible
+                ) : (
                 demo
               )
             }
