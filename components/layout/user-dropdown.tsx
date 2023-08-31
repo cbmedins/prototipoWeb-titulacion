@@ -16,6 +16,9 @@ export default function UserDropdown({ session }: { session: Session }) {
 
   if (!email) return null;
 
+  console.log('Contenido de session:', email); // Agrega este log
+
+
   return (
     <div className="relative inline-block text-left">
       <Popover
@@ -33,7 +36,7 @@ export default function UserDropdown({ session }: { session: Session }) {
               </Link>
             </button>
             }
-            
+
             <button
               className="relative flex w-full items-center justify-start space-x-2 rounded-md p-2 text-left text-sm transition-all duration-75 hover:bg-gray-100"
               onClick={() => signOut()}
