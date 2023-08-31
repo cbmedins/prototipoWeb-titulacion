@@ -1,3 +1,6 @@
+"use client";
+
+
 import Card from "@/components/home/card-form";
 import Balancer from "react-wrap-balancer";
 import { DEPLOY_URL } from "@/lib/constants";
@@ -53,16 +56,14 @@ export default async function Home() {
 */
 import { Session } from "next-auth";
 
-interface Props {
-  session: Session;
+interface UserCredentialsLoggerProps {
+  session: Session | null;
 }
 
-export default function Home({ session }: Props) {
-  const { user } = session;
+export default function UserCredentialsLogger({ session }: UserCredentialsLoggerProps) {
+  if (!session) return null;
 
-  if (!user) return null;
-
-  console.log("Credenciales del usuario:", user);
+  console.log("Credenciales del usuario:", session.user);
 
   return null;
 }
