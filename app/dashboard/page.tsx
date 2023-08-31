@@ -1,6 +1,3 @@
-"use client";
-
-
 import Card from "@/components/home/card-form";
 import Balancer from "react-wrap-balancer";
 import { DEPLOY_URL } from "@/lib/constants";
@@ -45,6 +42,7 @@ export default async function Home() {
             style={{ animationDelay: "0.3s", animationFillMode: "forwards" }}
           >
             
+           
   
           </div>
         </div>
@@ -53,5 +51,4 @@ export default async function Home() {
     </>
   );
 }
-
 
