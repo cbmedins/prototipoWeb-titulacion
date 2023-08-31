@@ -110,11 +110,9 @@ const ContactForm: React.FC = () => {
         console.log('Resultado del servidor:', result);
         setPredictionValue(result.prediction);
 
-        const { data: session } = useSession();
-        // Guardar los datos en la base de datos usando Prisma
-        
-
-        console.log('Datos guardados:', data);
+        // Usa el hook de sesión aquí
+        const session = useSession();
+        console.log('Datos de la sesión:', session);
 
 
         // Abre el modal
