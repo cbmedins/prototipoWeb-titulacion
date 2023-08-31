@@ -8,6 +8,7 @@ import Modal from "@/components/shared/modal";
 import Tooltip from "@/components/shared/tooltip";
 
 import { useSession } from 'next-auth/react'; // Importa useSession de NextAuth.js
+import { Session } from "next-auth";
 
 
 const ContactForm: React.FC = () => {
@@ -34,8 +35,8 @@ const ContactForm: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   // Usa el hook de sesión aquí
-  const session = useSession();
-  console.log('Datos de la sesión:', session);
+  //const session = useSession();
+  //console.log('Datos de la sesión:', session);
 
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -130,7 +131,13 @@ const ContactForm: React.FC = () => {
     }
   };
   
+  const { data: session, status } = useSession(); // Usar destructuración para obtener data y status
   
+  console.log('Estado de la sesión:', status); // Puedes verificar el estado de la sesión en la consola
+  
+  if (session) {
+    console.log('Credenciales del usuario:', session.user); // Muestra las credenciales del usuario
+  }
 
   return (
     <div className="p-4">
