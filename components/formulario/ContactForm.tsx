@@ -33,6 +33,9 @@ const ContactForm: React.FC = () => {
 
   const [isLoading, setIsLoading] = useState(false);
 
+  // Usa el hook de sesión aquí
+  const session = useSession();
+  console.log('Datos de la sesión:', session);
 
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -127,9 +130,7 @@ const ContactForm: React.FC = () => {
     }
   };
   
-  // Usa el hook de sesión aquí
-  const session = useSession();
-  console.log('Datos de la sesión:', session);
+  
 
   return (
     <div className="p-4">
