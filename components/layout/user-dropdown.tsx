@@ -9,6 +9,8 @@ import { LayoutDashboard, LogOut } from "lucide-react";
 import Popover from "@/components/shared/popover";
 import Image from "next/image";
 import { Session } from "next-auth";
+import ContactForm from "@/components/formulario/ContactForm"; // Importa el componente ContactForm
+
 
 export default function UserDropdown({ session }: { session: Session }) {
   const { email, image } = session?.user || {};
@@ -62,6 +64,9 @@ export default function UserDropdown({ session }: { session: Session }) {
           />
         </button>
       </Popover>
+      <ContactForm email={email} />
+
+
     </div>
   );
 }

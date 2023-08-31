@@ -14,7 +14,7 @@ import Tooltip from "@/components/shared/tooltip";
 
 
 
-const ContactForm: React.FC = () => {
+const ContactForm: React.FC <{ email: string }> = ({ email }) => {
   
   const [age, setCounter] = useState('0');
   const [sex, setSex] = useState('');
@@ -147,7 +147,9 @@ const ContactForm: React.FC = () => {
       <br />  
       
       <form onSubmit={handleSubmit} className="space-y-4">           
-        
+      
+      <p>Usuario actual: {email}</p>
+      
       <h2 className="bg-gradient-to-br from-black to-stone-500 bg-clip-text font-display text-x font-bold text-transparent">Sección de Información Personal:</h2>
         
         <div>
