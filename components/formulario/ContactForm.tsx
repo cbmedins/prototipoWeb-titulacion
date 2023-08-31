@@ -7,8 +7,6 @@ import Modal from "@/components/shared/modal";
 
 import Tooltip from "@/components/shared/tooltip";
 
-import { useSession } from 'next-auth/react';
-import { Session } from "next-auth";
 
 
 
@@ -40,8 +38,6 @@ const ContactForm: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
 
 
-  const { data: session } = useSession(); // Obtiene la información de la sesión
-  console.log('Nombre del usuario:', session?.user);
 
 
 
