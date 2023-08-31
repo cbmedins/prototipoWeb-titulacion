@@ -20,6 +20,7 @@ export default function UserDropdown({ session }: { session: Session }) {
 
   console.log('Contenido de session:', email); // Agrega este log
 
+  <ContactForm email={email} />
 
   return (
     <div className="relative inline-block text-left">

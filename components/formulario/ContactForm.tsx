@@ -12,8 +12,6 @@ import Tooltip from "@/components/shared/tooltip";
 
 
 
-
-
 const ContactForm: React.FC <{ email: string }> = ({ email }) => {
   
   const [age, setCounter] = useState('0');
@@ -85,7 +83,7 @@ const ContactForm: React.FC <{ email: string }> = ({ email }) => {
       ok: true,
       json: async () => ({ prediction: 75 }),
     };
-    
+
   try {
    // const response = await fetch('https://modelo-docker.onrender.com/predict/', {
     const response = await fetch('http://localhost:8000/predict/', {
