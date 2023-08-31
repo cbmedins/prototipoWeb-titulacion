@@ -64,7 +64,6 @@ export default function UserDropdown({ session }: { session: Session }) {
           />
         </button>
       </Popover>
-      <ContactForm email={email} />
 
 
     </div>
