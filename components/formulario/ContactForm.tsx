@@ -10,8 +10,9 @@ import Tooltip from "@/components/shared/tooltip";
 
 import UserDropdown from "@/components/layout/user-dropdown";
 import NavBar from "@/components/layout/navbar"; // Importa el componente NavBar
-import { useSession } from 'next-auth/react'; // Importa el hook useSession
-import { Session } from 'next-auth';
+
+import { useSession } from 'next-auth/react';
+
 
 
 
@@ -37,6 +38,11 @@ const ContactForm: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
 
   const [isLoading, setIsLoading] = useState(false);
+
+  const { data: session } = useSession(); // La propiedad 'data' contiene la información de la sesión
+
+  console.log('Nombre del usuario:', session?.user?.name);
+
 
   // Usa el hook de sesión aquí
   //const session = useSession();
