@@ -13,7 +13,7 @@ import { nFormatter } from "@/lib/utils";
 import ContactForm from "@/components/formulario/ContactForm";
 import Cardform from "@/components/home/card-form";
 
-/*
+
 export default async function Home() {
   
 
@@ -53,5 +53,5 @@ export default async function Home() {
     </>
   );
 }
-*/
+
 
