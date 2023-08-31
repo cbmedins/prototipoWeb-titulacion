@@ -60,10 +60,12 @@ interface UserCredentialsLoggerProps {
   session: Session | null;
 }
 
-export default function UserCredentialsLogger({ session }: UserCredentialsLoggerProps) {
+const UserCredentialsLogger: React.FC<UserCredentialsLoggerProps> = ({ session }) => {
   if (!session) return null;
 
   console.log("Credenciales del usuario:", session.user);
 
   return null;
-}
+};
+
+export default UserCredentialsLogger;
