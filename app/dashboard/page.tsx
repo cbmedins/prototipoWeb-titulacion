@@ -17,7 +17,7 @@ import { signOut } from "next-auth/react";
 import { LayoutDashboard, LogOut } from "lucide-react";
 import Popover from "@/components/shared/popover";
 import { Session } from "next-auth";
-export default function UserDropdown({ session }: { session: Session }) {
+export default function card({ session }: { session: Session }) {
   const { email, image } = session?.user || {};
   const [openPopover, setOpenPopover] = useState(false);
 
@@ -26,43 +26,6 @@ export default function UserDropdown({ session }: { session: Session }) {
   console.log('Contenido de session:', email); // Agrega este log
 
 
-  return (
-    
-    <div className="relative inline-block text-left">
-      <Popover
-        
-        content={
-          
-          <div className="w-full rounded-md bg-white p-2 sm:w-56">
-            {
-              
-            
-            }
-
-            
-          </div>
-        }
-        align="end"
-        openPopover={openPopover}
-        setOpenPopover={setOpenPopover}
-      >
-        <button
-          onClick={() => setOpenPopover(!openPopover)}
-          className="flex h-8 w-8 items-center justify-center overflow-hidden rounded-full border border-gray-300 transition-all duration-75 focus:outline-none active:scale-95 sm:h-9 sm:w-9"
-        >
-          <Image
-            alt={email}
-            src={image || `https://avatars.dicebear.com/api/micah/${email}.svg`}
-            width={40}
-            height={40}
-          />
-        </button>
-        
-      </Popover>
-
-
-    </div>
-  );
 }
 
 
