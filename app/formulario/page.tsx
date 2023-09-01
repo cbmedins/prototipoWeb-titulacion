@@ -48,25 +48,27 @@ export default async function Home() {
         </div>
         
 
-      <div className="my-10 grid w-full max-w-screen-xl animate-fade-up grid-cols-1 gap-5 px-5 md:grid-cols-3 xl:px-0">
-        {features.map(({ title, description, demo, large }) => (
-          <Cardform
-            key={title}
-            title={title}
-            description={description}
-            demo={
-              title === "" ? (
-                <ContactForm /> // Pasa el correo electrónico si está disponible
-                ) : (
-                demo
-              )
-            }
-            large={large}
-          />
-        ))}
-      </div>
-    </>
-  );
+      
+
+<div className="my-10 grid w-full max-w-screen-xl animate-fade-up grid-cols-1 gap-5 px-5 md:grid-cols-3 xl:px-0">
+{features.map(({ title, description, demo, large }) => (
+  <Cardform
+    key={title}
+    title={title}
+    description={description}
+    demo={
+      title === "" ? (
+        <ContactForm />
+      ) : (
+        demo
+      )
+    }
+    large={large}
+  />
+))}
+</div>
+</>
+);
 }
 
 
