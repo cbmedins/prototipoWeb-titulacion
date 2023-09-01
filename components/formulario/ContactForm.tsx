@@ -11,8 +11,8 @@ import Tooltip from "@/components/shared/tooltip";
 
 
 
-
-const ContactForm: React.FC <{ email?: string }> = ({ email = ''}) => {
+const ContactForm: React.FC = () => {
+//const ContactForm: React.FC <{ email?: string }> = ({ email = ''}) => {
   
   const [age, setCounter] = useState('0');
   const [sex, setSex] = useState('');
@@ -60,7 +60,6 @@ const ContactForm: React.FC <{ email?: string }> = ({ email = ''}) => {
     console.log('ExerciseAngina:', exerciseAngina);
     console.log('Oldpeak:', oldpeak);
     console.log('ST_Slope:', ST_Slope);
-    console.log('dato del email:',email);
     
     setIsLoading(true); // Inicia la carga
 
@@ -126,26 +125,6 @@ const ContactForm: React.FC <{ email?: string }> = ({ email = ''}) => {
       <br />  
       
       <form onSubmit={handleSubmit} className="space-y-4">  
-
-
-
-
-
-
-      {/* You can use the 'email' prop here */}
-        <h2 className="bg-gradient-to-br from-black to-stone-500 bg-clip-text font-display text-x font-bold text-transparent">
-          Sección de Información Personal:
-        </h2>
-        
-        <div>
-          <label>Correo Electrónico:</label>
-          <input
-            type="text"
-            value={email}
-            readOnly
-            className="w-full p-2 border border-gray-300 rounded"
-          />
-        </div>
 
 
 
