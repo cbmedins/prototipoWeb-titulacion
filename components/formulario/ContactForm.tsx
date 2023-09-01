@@ -7,11 +7,13 @@ import Modal from "@/components/shared/modal";
 
 import Tooltip from "@/components/shared/tooltip";
 
+import { useSession } from 'next-auth/react';
 
 
 
-
-const ContactForm: React.FC = () => {
+const ContactForm = () => {
+  const { data: session } = useSession();
+//const ContactForm: React.FC = () => {
 //const ContactForm: React.FC <{ email?: string }> = ({ email = ''}) => {
   
   const [age, setCounter] = useState('0');
@@ -49,6 +51,15 @@ const ContactForm: React.FC = () => {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // Aquí puedes realizar acciones con los datos del formulario, como enviarlos a un servidor.
+
+    if (session?.user) {
+      console.log('Usuario activo:', session.user.email);
+      // Accede a otras propiedades del usuario según sea necesario, como session.user.name, session.user.id, etc.
+    } else {
+      console.log('No hay usuario activo');
+    }
+
+    
     console.log('Age:', age);
     console.log('Sex:', sex);
     console.log('ChestPainType:', chestPainType);
