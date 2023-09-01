@@ -7,13 +7,16 @@ import Modal from "@/components/shared/modal";
 
 import Tooltip from "@/components/shared/tooltip";
 
-import { useSession } from 'next-auth/react';
+import { Session } from "next-auth";
 
 
+interface ContactFormProps {
+  onSubmit: (e: FormEvent<HTMLFormElement>) => void; // Cambia la firma para que solo tome el evento del formulario
+}
 
-const ContactForm = () => {
-  const { data: session } = useSession();
-//const ContactForm: React.FC = () => {
+
+//const ContactForm: React.FC<ContactFormProps> = ({ onSubmit }) => {
+const ContactForm: React.FC = () => {
 //const ContactForm: React.FC <{ email?: string }> = ({ email = ''}) => {
   
   const [age, setCounter] = useState('0');
@@ -47,19 +50,12 @@ const ContactForm = () => {
   //console.log('Datos de la sesión:', session);
 
 
-
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    //onst handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // Aquí puedes realizar acciones con los datos del formulario, como enviarlos a un servidor.
 
-    if (session?.user) {
-      console.log('Usuario activo:', session.user.email);
-      // Accede a otras propiedades del usuario según sea necesario, como session.user.name, session.user.id, etc.
-    } else {
-      console.log('No hay usuario activo');
-    }
 
-    
     console.log('Age:', age);
     console.log('Sex:', sex);
     console.log('ChestPainType:', chestPainType);
@@ -126,7 +122,6 @@ const ContactForm = () => {
       setIsLoading(false); // Finaliza la carga, ya sea éxito o error
     }
   };
- 
   //console.log('Contenido de session:', //email);
 
   return (
@@ -135,7 +130,7 @@ const ContactForm = () => {
       <h1 className="bg-gradient-to-br from-black to-stone-500 bg-clip-text font-display text-xl font-bold text-transparent md:text-3xl md:font-normal">Formulario para la predicción</h1>      
       <br />  
       
-      <form onSubmit={handleSubmit} className="space-y-4">  
+      <form onSubmit={handleSubmit} className="space-y-4">
 
 
 
@@ -467,7 +462,6 @@ const ContactForm = () => {
           {predictionValue === 1
           ? 'se ha detectado una condición de enfermedad cardiovascular o un riesgo elevado de desarrollarla.'
           : 'no se ha detectado una condición de enfermedad cardiovascular o un riesgo elevado de desarrollarla.'}
-     
           </p>
           <button
             className={"group flex max-w-fit items-center justify-center space-x-2 border bg-blue-500 px-10 py-2 text-sm text-white transition-colors hover:bg-white hover:text-black rounded border-b-4 border-blue-700 hover:border-blue-500"}

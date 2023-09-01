@@ -10,10 +10,25 @@ import { nFormatter } from "@/lib/utils";
 import ContactForm from "@/components/formulario/ContactForm";
 import Cardform from "@/components/home/card-form";
 
+import { Session } from "next-auth";
+import { useState } from "react";
 
 
-export default async function Home() {
+
+
+//export default async function Home() {
+  export default function Home({ session }: { session: Session }) {
   
+  const { email, image } = session?.user || {};
+  const [openPopover, setOpenPopover] = useState(false);
+
+  if (!email) return null;
+
+  console.log("Información del usuario actual:");
+  console.log("Correo electrónico:", email);
+
+  //console.log('Contenido de session:', ////email); // Agrega este log
+
 
     return (
       <>
