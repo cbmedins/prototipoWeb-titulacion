@@ -9,10 +9,13 @@ import Link from "next/link"
 import { nFormatter } from "@/lib/utils";
 import ContactForm from "@/components/formulario/ContactForm";
 import Cardform from "@/components/home/card-form";
+import { useSession } from 'next-auth/react';
 
 
 
 export default async function Home() {
+  const { data: session } = useSession();
+
   
 
     return (
@@ -58,8 +61,8 @@ export default async function Home() {
     description={description}
     demo={
       title === "" ? (
-        <ContactForm />
-      ) : (
+        <ContactForm email={session?.user?.email || undefined} /> // Pasa el correo electrónico si está disponible
+        ) : (
         demo
       )
     }
